@@ -77,8 +77,12 @@ class EnemyBoat(Boat):
 
     def ai_behavior(self, target):
         # Calculate the vector from the enemy boat to the target
-        dx = target.rect.x - self.rect.x
-        dy = target.rect.y - self.rect.y
+        if hasattr(target, 'rect'):
+            dx = target.rect.x - self.rect.x
+            dy = target.rect.y - self.rect.y
+        else:
+            dx = target.x - self.rect.x
+            dy = target.y - self.rect.y
         distance = math.sqrt(dx**2 + dy**2)
         
         # Normalize the vector to get the direction
