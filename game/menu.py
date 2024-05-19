@@ -49,10 +49,6 @@ def play():
     description_text = description_font.render("This is the play screen. You can start playing the game by clicking on the 'Start Game' button below.", True, "White")
     description_rect = description_text.get_rect(center=(640, 400))
 
-    # Load the volume up and down button images
-    volume_up_image = pygame.image.load("Assets/background/volume_up.png")
-    volume_down_image = pygame.image.load("Assets/background/volume_down.png")
-
     # Create volume up and down buttons
     volume_up_button = Button(image=volume_up_image, pos=(100, 50), image_size=(50, 50), base_color="White")
     volume_down_button = Button(image=volume_down_image, pos=(100, 100), image_size=(50, 50), base_color="White")
@@ -156,19 +152,7 @@ def main_menu():
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                # Handle volume up button input
-                if volume_up_button.checkForInput(pygame.mouse.get_pos()):
-                    volume += 0.1
-                    if volume > 1.0:
-                        volume = 1.0
-                    set_music_volume(volume)
 
-                # Handle volume down button input
-                if volume_down_button.checkForInput(pygame.mouse.get_pos()):
-                    volume -= 0.1
-                    if volume < 0.0:
-                        volume = 0.0
-                    set_music_volume(volume)
 
                 # Handle play button input
                 if PLAY_BUTTON.checkForInput(pygame.mouse.get_pos()):
