@@ -1,5 +1,6 @@
 import pygame, sys
 from button import Button
+from main import main
 
 # Initialize Pygame
 pygame.init()
@@ -85,7 +86,7 @@ def play():
                 # Handle start game button input
                 if PLAY_START_GAME.checkForInput(pygame.mouse.get_pos()):
                     # Start the game here
-                    pass
+                    main()  # Call the main function from main.py
 
             elif event.type == pygame.KEYDOWN:
                 # Handle volume up and down keys
@@ -156,7 +157,7 @@ def main_menu():
 
                 # Handle play button input
                 if PLAY_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                    play()
+                    main()
 
                 # Handle quitbutton input
                 if QUIT_BUTTON.checkForInput(pygame.mouse.get_pos()):

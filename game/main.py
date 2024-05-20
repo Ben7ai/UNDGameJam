@@ -148,6 +148,7 @@ def spawn_enemy(screen_width, screen_height, sprite_path="assets/sprites/enemy.p
     return enemy_boat
     
 def main():
+    pygame.init()
     screen = pygame.display.set_mode(SCREEN_SIZE)
     pygame.display.set_caption("Boat Game")
     clock = pygame.time.Clock()
